@@ -1,0 +1,45 @@
+server:
+  port: 8081
+
+logging:
+  level:
+    root: INFO
+    org:
+      springframework:
+        web: INFO
+        security: TRACE
+
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          k9-client-oidc:
+            provider: spring
+            client-id: k9-client
+            client-secret: secret
+            authorization-grant-type: authorization_code
+            redirect-uri: "http://127.0.0.1:8081/login/oauth2/code/{registrationId}"
+            scope: openid
+            client-name: k9-client-oidc
+          k9-client-authorization-code:
+            provider: spring
+            client-id: k9-client
+            client-secret: secret
+            authorization-grant-type: authorization_code
+            redirect-uri: "http://127.0.0.1:8081/authorized"
+            scope: k9.read
+            client-name: k9-client-authorization-code
+          k9-client-client-credentials:
+            provider: spring
+            client-id: k9-client
+            client-secret: secret
+            authorization-grant-type: client_credentials
+            scope: k9.read
+            client-name: k9-client-client-credentials
+        provider:
+          spring:
+            issuer-uri: http://auth-server:9000
+
+k9:
+  base-url: http://127.0.0.1:8091/k9

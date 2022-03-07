@@ -1,0 +1,30 @@
+server:
+  port: 8091
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/db_k9
+    username: postgres
+    password: root
+  jpa:
+    show: true
+    generate-ddl: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://auth-server:9000
+
+
+logging:
+  level:
+    root: INFO
+    org:
+      springframework:
+        web: INFO
+        security: TRACE
