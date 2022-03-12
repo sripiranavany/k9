@@ -42,4 +42,4 @@ spring:
             issuer-uri: http://auth-server:9000
 
 k9:
-  base-url: http://127.0.0.1:8091/k9
+  base-url: http://127.0.0.1:8091
