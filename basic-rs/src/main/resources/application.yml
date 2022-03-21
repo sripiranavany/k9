@@ -21,7 +21,6 @@ spring:
         jwt:
           issuer-uri: http://auth-server:9000
 
-
 logging:
   level:
     root: INFO
