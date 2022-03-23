@@ -1,13 +1,13 @@
 server:
   port: 8081
 
-logging:
-  level:
-    root: INFO
-    org:
-      springframework:
-        web: INFO
-        security: TRACE
+#logging:
+#  level:
+#    root: INFO
+#    org:
+#      springframework:
+#        web: INFO
+#        security: TRACE
 
 spring:
   security:

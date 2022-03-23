@@ -1,0 +1,12 @@
+a{
+    color: #212529;
+    text-decoration : none;
+}
+a:hover{
+    color: #212529;
+    text-decoration: none;
+    cursor: pointer;
+}
+.body-height{
+    min-height:90vh;
+}

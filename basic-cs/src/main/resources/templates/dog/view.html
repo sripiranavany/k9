@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View All Dogs</title>
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="/"><span class="navbar-brand mb-0 h1">K9 Division</span></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarText">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="/dogs/all">Dogs</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Handler</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">History</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main class="body-height container-fluid">
+        <div class="mt-3">
+            <h3 class="text-center mb-3">Dogs List</h3>
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">Id</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Breed</th>
+                        <th scope="col">Color</th>
+                        <th scope="col">Gender</th>
+                        <th scope="col">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <th:block th:each="dog, iteration: ${dogs}">
+                        <tr>
+                            <td th:text="${dog.getId()}">1</td>
+                            <td th:text="${dog.getName()}">Lucy</td>
+                            <td th:text="${dog.getBreed()}">Labrador</td>
+                            <td th:text="${dog.getColor()}">Black</td>
+                            <td th:text="${dog.getGender()}">Male</td>
+                            <td>
+                                <a class="btn btn-sm btn-outline-primary" th:href="@{/dogs/{id}(id=${dog.getId()})}"><i class="fa-solid fa-eye"></i> View</a> &nbsp;
+                                <a class="btn btn-sm btn-outline-warning"><i class="fa-solid fa-pen-to-square"></i> Update</a>
+                                <a class="btn btn-sm btn-outline-danger"><i class="fa-solid fa-circle-trash"></i> Delete</a>
+                            </td>
+                        </tr>
+                    </th:block>
+                </tbody>
+            </table>
+        </div>
+    </main>
+    <footer>
+        <div class="container-fluid d-flex justify-content-between bg-light">
+            <p>&copy; All rights reserved.</p>
+            <p>Solution by <a href="https://sci.pdn.ac.lk/siic/home" target="_blank">Science Industry Interaction Cell, University of Peradeniya, Sri Lanka.</a></p>
+        </div>
+    </footer>
+
+    <script src="/assets/js/jquery.min.js"></script>
+    <script src="/assets/js/bootstrap.min.js"></script>
+</body>
+</html>
